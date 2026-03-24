@@ -123,4 +123,4 @@ Ensuring valid keys and format from model responses.
 Solution: Added validation functions to parse and check structured outputs.
 #### API Key management:
 Needed a secure way to store API keys.
-Solution: Used .env file and python-dotenv to load keys dynamically.
+Solution:The solution was to create .env file and python-dotenv to load keys dynamically, but that didn't work for me, the file just couldn't read the data although I used loadotenv()
