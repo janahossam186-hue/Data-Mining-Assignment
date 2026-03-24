@@ -42,7 +42,7 @@ Assignment2/
 git clone <your-repo-link>
 cd Assignment2
 
-### 2. Create virtual environment
+*### 2. Create virtual environment*
 python -m venv venv
 venv\Scripts\activate
 
