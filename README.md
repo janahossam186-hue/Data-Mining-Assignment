@@ -34,7 +34,7 @@ Assignment2/
 └── venv/
 
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the repository
 
@@ -42,13 +42,13 @@ Assignment2/
 git clone <your-repo-link>
 cd Assignment2
 
-2. Create virtual environment
+### 2. Create virtual environment
 python -m venv venv
 venv\Scripts\activate
 
-3. Install dependencies
+### 3. Install dependencies
 pip install requests
 pip install dotenv
 
-4. Run the project
+### 4. Run the project
 python conversational_agent.py
