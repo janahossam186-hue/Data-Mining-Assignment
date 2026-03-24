@@ -2,6 +2,7 @@ import os
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
+github_link="https://github.com/janahossam186-hue/Data-Mining-Assignment.git" ## I didn't know how to submit the link on moodle
 
 API_KEY="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"
 BASE_URL="https://api.groq.com/openai/v1"
@@ -454,17 +455,25 @@ def process_messages_advanced(client, messages, tools=None, available_functions=
     available_functions = available_functions or {}
     response = client.chat.completions.create(
         model=LLM_MODEL,
-    messages=messages,
-    tools=tools,
+        messages=messages,
+        tools=tools,
     )
     response_message = response.choices[0].message
-    messages.append(response_message)
+    messages.append({
+        "role": response_message.role,
+        "content": response_message.content,
+        "tool_calls": response_message.tool_calls,
+    })
     if response_message.tool_calls:
         tool_results = execute_tools_parallel(
             response_message.tool_calls,
             available_functions,
         )
-        messages.extend(tool_results)
+        for tool_result in tool_results:
+            messages.append({
+                "role": "assistant",
+                "content": f"Tool output: {tool_result['content']}",
+            })
     return messages, response_message
     
     
